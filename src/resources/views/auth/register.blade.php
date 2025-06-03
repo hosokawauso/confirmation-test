@@ -30,7 +30,7 @@
             </div>
             <div class="form__group-content">
                 <div class="form__input--text">
-                    <input type="text" name="name" placeholder="例:山田 太郎" value={{ old('name') }} >
+                    <input type="text" name="name" placeholder="例:山田 太郎" value="{{ old('name') }}" >
                 </div>
             <div class="form__error">
                 @error('name')

@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 
 /*
@@ -15,13 +16,13 @@ use App\Http\Controllers\Auth\AuthenticatedSessionController;
 |
 */
 
-Route::get('/', [ContactController::class, 'index']);
+Route::get('/', [ContactController::class, 'contact']);
 Route::post('/confirm', [ContactController::class,'confirm']);
-Route::post('/thanks',[ContactController::class, 'store']);
+Route::post('/thanks',[ContactController::class, 'thanks']);
 
 Route::post('/login', [AuthenticatedSessionController::class, 'store'])
     ->middleware(['guest']);
 
 
-
+Route::get('/admin', [AdminController::class, 'index']); //->middleware(['auth']);
 
