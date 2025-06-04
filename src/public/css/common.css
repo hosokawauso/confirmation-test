@@ -1,0 +1,17 @@
+.header {
+    background-color: white;
+}
+
+.header__inner {
+    margin: 0 auto;
+    padding: 30px 60px;
+    max-width: 1230px;
+}
+
+.header__logo {
+    margin: 0 auto;
+    text-align: center;
+    color: #BC8F8F;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 50px;
+}

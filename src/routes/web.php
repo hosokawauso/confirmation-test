@@ -20,8 +20,8 @@ Route::get('/', [ContactController::class, 'contact']);
 Route::post('/confirm', [ContactController::class,'confirm']);
 Route::post('/thanks',[ContactController::class, 'thanks']);
 
-Route::post('/login', [AuthenticatedSessionController::class, 'store'])
-    ->middleware(['guest']);
+//Route::post('/login', [AuthenticatedSessionController::class, 'store'])
+    //->middleware(['guest']);
 
 
 Route::get('/admin', [AdminController::class, 'index']); //->middleware(['auth']);

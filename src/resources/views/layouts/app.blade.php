@@ -15,9 +15,9 @@
         @yield('header')
         <div class="header__inner">
            <div class="header-utilities">
-            <a class="header__logo"  href="/">
+            <h1 class="header__logo">
                 FashionablyLate
-            </a>
+            </h1>
             <nav></nav>
            </div>
         </div>            

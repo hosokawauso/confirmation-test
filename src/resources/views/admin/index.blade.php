@@ -5,16 +5,9 @@
 @endsection
 
 @section('header')
-<div class="header">
-    <div class="header-utilities">
-        <h1 class="header__logo">
-            FashionablyLate
-        </h1>
         <nav class="header__nav">
             <a class="login-button" href="/login">logout</a>
         </nav>
-    </div>
-</div>
 @endsection
 
 @section('content')
@@ -23,34 +16,34 @@
         <h2>Admin</h2>
     </div>
     <div class="search-form">
-        <form action="/index" method="get">
+        <form action="/admin" method="get">
             <input type="text" name="keyword" placeholder="名前やメールアドレスを入力してください" value="{{ request('keyword') }}">
             <select class="gender" name="gender" >
                 <option value="">性別</option>
-                <option value="男性">男性</option>
-                <option value="女性">女性</option>
-                <option value="その他">その他</option>
+                <option value="1">男性</option>
+                <option value="2">女性</option>
+                <option value="3">その他</option>
             </select>
-            <select class="category" name="category">
+            <select class="category" name="category_id">
                 <option value="">お問い合わせの種類</option>
-                <option value="商品のお届けについて">商品のお届けについて</option>
-                <option value="商品の交換について">商品の交換について</option>
+                @foreach($categories as $category)
+                <option value="{{ $category->id }}">{{ $category->content }}</option>
+                @endforeach
             </select>
             <input type="date" name="date" value="{{ request('date') }}">
             <button type="submit">検索</button>
-            <a class="reset-button" href="/index">リセット</a>
+            <a class="reset-button" href="/admin">リセット</a>
         </form>
         <div class="export">
             <button type="">
                 エクスポート
             </button>
         </div>
-        <div class="pagination">
+        {{-- <div class="pagination">
             {{ $contacts->appends(request()->query())->links() }}
-        </div>
+        </div> --}}
         <div class="admin-table">
-            <table class="admin-table__inner">
-                @foreach($contacts as $contact)
+            <table class="admin-table__inner" >               
                 <tr class="admin-table__row">
                     <th class="table-title__header">
                         <span class="admin-table__header-span">お名前</span>
@@ -59,13 +52,23 @@
                         <span class="admin-table__header-span">お問い合わせの種類</span>    
                     </th>
                 </tr>
+                @foreach($contacts as $contact)
                 <tr class="admin-table__row">
-                    {{-- <td class="admin-table__item">{{ $contact->name }}</td>
-                    <td class="admin-table__item">{{ $contact->gender }}</td>
-                    <td class="admin-table__item">{{ $contact->email }}</td>
-                    <td class="admin-table__item">{{ $contact->category }}</td> --}}
+                    <td class="admin-table__item">{{ $contact->last_name }}</td>
+                    <td class="admin-table__item">{{ $contact->first_name }}</td>
                     <td class="admin-table__item">
-                        <a class="detail-button" href=""></a>
+                        @if ($contact->gender == 1)
+                            男性
+                        @elseif ($contact->gender == 2)
+                            女性
+                        @elseif ($contact->gender == 3)
+                            その他                            
+                        @endif
+                    </td>
+                    <td class="admin-table__item">{{ $contact->email }}</td>
+                    <td class="admin-table__item">{{ $contact->category->content }}</td>
+                    <td class="admin-table__item">
+                        <a class="detail-button" href="">詳細</a>
                     </td>
                 </tr>
                 @endforeach
