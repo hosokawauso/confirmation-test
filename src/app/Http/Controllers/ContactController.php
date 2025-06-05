@@ -4,28 +4,71 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Requests\ContactRequest;
+use App\Models\Category;
+use App\Models\Contact;
 
 class ContactController extends Controller
 {
     public function contact()
     {
-        return view('contact');
+        $categories = Category::all();
+
+        return view('contact', compact('categories'));
     }
 
     public function confirm(ContactRequest $request)
     {
-        $contact = $request->only(['last_name', 'first_name', 'gender', 'email', 'tel', 'address', 'category_id', 'detail']);
+        
+        $contact = $request->only([
+            'last_name', 
+            'first_name', 
+            'gender', 
+            'email', 
+            'tel1', 
+            'tel2', 
+            'tel3', 
+            'address',
+            'building', 
+            'category_id', 
+            'detail'
+        ]);
+
         $contact['name'] = $contact['last_name'] . ' ' . $contact['first_name'];
+
+
         $contact['tel'] = $contact['tel1'] . '-' . $contact['tel2'] . '-' . $contact['tel3'];
         
-        return view('confirm', compact('contact'));
+
+       /*  $categories = Category::all(); */
+        $category = Category::find($contact['category_id']) ;
+        
+        return view('confirm', compact('contact','category'));
     }
 
     public function thanks(Request $request)
     {
-        $contact = $request->only(['last_name', 'first_name', 'gender', 'email', 'tel', 'address', 'category_id', 'detail']);
+        /* dd([
+            'request_all' => $request->all(),
+            'request_input_detail' => $request->input('detail'),
+        ]);
+ */
+        $contact = $request->only([
+            'last_name', 
+            'first_name', 
+            'gender', 
+            'email', 
+            'tel', 
+            'address',
+            'building', 
+            'category_id', 
+            'detail',
+        ]);
+
         $contact['name'] = $contact['last_name'] . ' ' . $contact['first_name'];
-        $contact['tel'] = $contact['tel1'] . '-' . $contact['tel2'] . '-' . $contact['tel3'];
+        $contact['category_id'] = (int) $contact['category_id'];
+
+       
+        $categories = Category::all();
 
         Contact::create($contact);
 

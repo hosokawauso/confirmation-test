@@ -26,3 +26,5 @@ Route::post('/thanks',[ContactController::class, 'thanks']);
 
 Route::get('/admin', [AdminController::class, 'index']); //->middleware(['auth']);
 
+Route::get('/admin/export', [AdminController::class, 'export']);
+

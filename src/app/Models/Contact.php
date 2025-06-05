@@ -18,7 +18,7 @@ class Contact extends Model
         'tel',
         'address',
         'building',
-        'detail'
+        'detail',
     ];
 
     public function category() {
@@ -29,9 +29,12 @@ class Contact extends Model
     {
         if(!empty($keyword)) {
             $query->where(function($q) use ($keyword) {
-                $q->where('name', 'like', '%' . $keyword . '%')
-                ->orwhere('email', 'like', '%' . $keyword . '%');
+                $q->where('last_name', 'like', '%' . $keyword . '%')
+                ->orWhere('first_name', 'like', '%' . $keyword . '%')
+                ->orWhere('email', 'like', '%' . $keyword . '%');
       });
+
+      return $query;
     }
     }
 
@@ -40,13 +43,17 @@ class Contact extends Model
         if(!empty($gender)) {
             $query->where('gender', $gender);
         }
+
+        return $query;
     }
 
-    public function scopeCategorySearch($query, $category)
+    public function scopeCategorySearch($query, $categoryId)
     {
-        if(!empty($category_id)) {
-            $query->where('category_id', $category_id);
+        if(!empty($categoryId)) {
+            $query->where('category_id', $categoryId);
         }
+
+        return $query;
     }
 
     public function scopeContactDateSearch($query, $date)
@@ -54,6 +61,8 @@ class Contact extends Model
         if(!empty($date)) {
             $query->whereDate('created_at', $date);
         }
+
+        return $query;
     }
 
 
