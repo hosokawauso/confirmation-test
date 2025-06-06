@@ -18,6 +18,7 @@ use App\Http\Controllers\Auth\AuthenticatedSessionController;
 
 Route::get('/', [ContactController::class, 'contact']);
 Route::post('/confirm', [ContactController::class,'confirm']);
+Route::post('/reinput', [ContactController::class, 'reinput']);
 Route::post('/thanks',[ContactController::class, 'thanks']);
 
 //Route::post('/login', [AuthenticatedSessionController::class, 'store'])
@@ -27,4 +28,5 @@ Route::post('/thanks',[ContactController::class, 'thanks']);
 Route::get('/admin', [AdminController::class, 'index']); //->middleware(['auth']);
 
 Route::get('/admin/export', [AdminController::class, 'export']);
+Route::delete('/admin/{id}', [AdminController::class, 'destroy']);
 

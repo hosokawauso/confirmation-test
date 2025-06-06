@@ -42,9 +42,9 @@
                     <span class="form__label--required">※</span>
                 </div>
                 <div class="form__group-content">
-                    <input  name="gender" type="radio" value="1" checked>男性
-                    <input  name="gender" type="radio" value="2">女性
-                    <input  name="gender" type="radio" value="3">その他
+                    <input  name="gender" type="radio" value="1" {{ old('gender', '1') == '1' ? 'checked' : '' }}>男性
+                    <input  name="gender" type="radio" value="2" {{ old('gender') == '2' ? 'checked' : '' }}>女性
+                    <input  name="gender" type="radio" value="3" {{ old('gender') == '3' ? 'checked' : '' }}>その他
                 </div>
                 <div class="form__error">
                     @error('gender')
@@ -132,7 +132,10 @@
                         <select class="category" name="category_id">
                             <option value="">お問い合わせの種類</option>
                             @foreach($categories as $category)
-                            <option value="{{ $category->id }}">{{ $category->content }}</option>
+                            <option value="{{ $category->id }}"
+                                {{ old('category_id') == $category->id ? 'selected' : ''}}>
+                                {{ $category->content }}
+                            </option>
                             @endforeach
                         </select>
             
@@ -151,7 +154,7 @@
                 </div>
                 <div class="form__group-content">
                     <div class="form__input--textarea">
-                        <textarea name="detail" placeholder="お問い合わせ内容をご記載ください"></textarea>
+                        <textarea name="detail" placeholder="お問い合わせ内容をご記載ください">{{ old('detail') }}</textarea>
                     </div>
                     <div class="form__error">
                         @error('detail')

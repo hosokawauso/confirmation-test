@@ -10,7 +10,7 @@
         <div class="contact-form__heading">
             <h2>Confirm</h2>
         </div>
-        <form class="form" action="/thanks" method="post">
+        <form class="form" action="" method="post">
         @csrf
             <div class='confirm-table'>
                 <table class="confirm-table__inner">
@@ -85,9 +85,11 @@
                 </table>
             </div>
 
-            <div class="form-button">
-                <button class="form__button-submit" type="submit">送信</button>
-            </div>
-                <button class="fix-button"  type="submit">修正</button>
+            <div class="form-buttons">
+                <div class="form-button-item">
+                    <button class="form__button-submit" type="submit" formaction="/thanks">送信</button>
+                    <button class="fix-button"  type="submit" formaction="/reinput">修正</button>                    
+                </div>  
+             </div>           
         </form>
 @endsection

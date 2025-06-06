@@ -15,7 +15,7 @@
             <h2>お問い合わせありがとうございました</h2>
         </div>
         <div class="home__button">
-            <button class="home__button-submit" type="submit">HOME</button>
+            <a href="/" class="home__button-link">HOME</a>
         </div>
     </div>
 @endsection

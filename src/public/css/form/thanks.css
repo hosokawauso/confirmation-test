@@ -1,41 +1,78 @@
 .thanks-form__content {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 100px 20px;
-    min-height: 60vh;
-    background-color: #f9f9f9;
-}
-
-.thanks-form__box {
-    text-align: center;
-    background: white;
+    max-width: 600px;
+    margin: 60px auto;
     padding: 40px;
+    background-color: rgba(170, 81, 81, 0.952);
     border-radius: 12px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 12px black;
+    text-align: center;
+    font-family: 'Helvetica Neue', sans-serif;
 }
 
-.thanks-form__heading {
-    font-size: 1.8rem;
+.thanks-form__heading h2 {
+    font-size: 28px;
     margin-bottom: 30px;
-    color: #333;
+    color: white;
+    font-weight: bold;
 }
 
-.thanks-form__button {
+.thanks__content {
     margin-top: 20px;
 }
 
-.thanks-form__link {
-    display: inline-block;
-    padding: 12px 24px;
-    background-color: #4CAF50;
+.thanks__heading h2 {
+    font-size: 22px;
     color: white;
-    text-decoration: none;
-    border-radius: 6px;
-    font-size: 1rem;
-    transition: background-color 0.3s;
+    margin-bottom: 30px;
 }
 
-.thanks-form__link:hover {
-    background-color: #45a049;
+.home__button {
+    margin-top: 20px;
+}
+
+.thanks-form__content {
+    max-width: 600px;
+    margin: 60px auto;
+    padding: 40px;
+    background-color: #f9f9f9;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    font-family: 'Helvetica Neue', sans-serif;
+}
+
+.thanks-form__heading h2 {
+    font-size: 28px;
+    margin-bottom: 30px;
+    color: #333;
+    font-weight: bold;
+}
+
+.thanks__content {
+    margin-top: 20px;
+}
+
+.thanks__heading h2 {
+    font-size: 22px;
+    color: #555;
+    margin-bottom: 30px;
+}
+
+.home__button {
+    margin-top: 20px;
+}
+
+.home__button-link {
+    display: inline-block;
+    background-color: #3490dc;
+    color: #fff;
+    text-decoration: none;
+    padding: 12px 24px;
+    font-size: 16px;
+    border-radius: 6px;
+    transition: background-color 0.3s ease;
+}
+
+.home__button-link:hover {
+    background-color: #2779bd;
 }

@@ -57,8 +57,8 @@
                     <th class="admin-table__header">お名前</th>
                     <th class="admin-table__header">性別</th>
                     <th class="admin-table__header">メールアドレス</th>
-                    <th class="admin-table__header">お問い合わせの種類</th>    
-                    <th class="admin-table__header"></th>    
+                    <th class="admin-table__header">お問い合わせの種類</th>
+                    <th class="admin-table__header"></th>
                 </tr>
                 @foreach($contacts as $contact)
                 <tr class="admin-table__row">
@@ -69,18 +69,19 @@
                         @elseif ($contact->gender == 2)
                             女性
                         @elseif ($contact->gender == 3)
-                            その他                            
+                            その他
                         @endif
                     </td>
                     <td class="admin-table__item">{{ $contact->email }}</td>
                     <td class="admin-table__item">{{ $contact->category->content }}</td>
                     <td class="admin-table__item detail-cell">
-                        <a class="detail-button" href="">詳細</a>
+                        <button type="button" wire:click="$emit('openModal', {{ $contact->id }})" class="detail-button">詳細</button>
                     </td>
                 </tr>
                 @endforeach
             </table>
-        </div>        
+            @livewire('modal-contact-detail')
+        </div>
     </div>
 </div>
 @endsection

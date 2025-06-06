@@ -12,8 +12,9 @@ class ContactController extends Controller
     public function contact()
     {
         $categories = Category::all();
+        $old = old();
 
-        return view('contact', compact('categories'));
+        return view('contact', compact('categories', 'old'));
     }
 
     public function confirm(ContactRequest $request)
@@ -37,9 +38,9 @@ class ContactController extends Controller
 
 
         $contact['tel'] = $contact['tel1'] . '-' . $contact['tel2'] . '-' . $contact['tel3'];
-        
 
-       /*  $categories = Category::all(); */
+        session()->put('contact_input', $contact);
+        
         $category = Category::find($contact['category_id']) ;
         
         return view('confirm', compact('contact','category'));
@@ -72,7 +73,15 @@ class ContactController extends Controller
 
         Contact::create($contact);
 
+        session()->forget('contact_input');
+
         return view('thanks');
+    }
+
+    public function reinput(Request $request)
+    {
+        $contact = session()->get('contact_input');
+        return redirect('/')->withInput($contact);
     }
 
 }
