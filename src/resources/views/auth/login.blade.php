@@ -5,10 +5,10 @@
 @endsection
 
 @section('header')
-<div class="header">
+<div class="header__inner">
     <div class="header-utilities">
         <h1 class="header__logo">
-            FashionablyLate
+         FashionablyLate
         </h1>
         <nav class="header__nav">
             <a class="login-button" href="/register">register</a>

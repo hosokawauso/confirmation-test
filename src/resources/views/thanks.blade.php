@@ -4,6 +4,17 @@
     <link rel="stylesheet" href="{{ asset('css/form/thanks.css') }}">
 @endsection
 
+@section('header')
+<div class="header__inner">
+    <div class="header-utilities">
+        <h1 class="header__logo">
+         FashionablyLate
+        </h1>
+    </div>
+</div>
+@endsection
+
+
 
 @section('content')
 <div class="thanks-form__content">

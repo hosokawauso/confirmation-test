@@ -4,7 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
-
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\RegisterController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -21,12 +22,19 @@ Route::post('/confirm', [ContactController::class,'confirm']);
 Route::post('/reinput', [ContactController::class, 'reinput']);
 Route::post('/thanks',[ContactController::class, 'thanks']);
 
-//Route::post('/login', [AuthenticatedSessionController::class, 'store'])
-    //->middleware(['guest']);
+Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
+Route::post('/login', [LoginController::class, 'login']);
+Route::get('/register', [RegisterController::class, 'showRegistrationForm'])->name('register');
+Route::post('/register', [RegisterController::class, 'register']);
 
 
-Route::get('/admin', [AdminController::class, 'index']); //->middleware(['auth']);
 
-Route::get('/admin/export', [AdminController::class, 'export']);
-Route::delete('/admin/{id}', [AdminController::class, 'destroy']);
+Route::middleware(['auth'])->group(function () {
+    Route::get('/admin', [AdminController::class, 'index']);
+    Route::get('/admin/export', [AdminController::class, 'export']);
+});
+
+Route::delete('/admin', [AdminController::class, 'destroy']);
+
+
 

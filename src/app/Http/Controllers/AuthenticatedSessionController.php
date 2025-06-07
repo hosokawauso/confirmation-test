@@ -14,6 +14,10 @@ class AuthenticatedSessionController extends Controller
     {
        $request->authenticate();
 
-        return app(LoginResponse::class);
+        /* return app(LoginResponse::class); */
+
+        return redirect()->intended('/admin');
+
+
     }
 }

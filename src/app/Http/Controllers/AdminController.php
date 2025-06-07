@@ -13,7 +13,8 @@ class AdminController extends Controller
 {
     public function index(Request $request)
     {
-        //$user = Auth::user();
+        $user = Auth::user();
+        
         $query = Contact::with('category')            
             ->KeywordSearch($request->keyword)
             ->GenderSearch($request->gender)

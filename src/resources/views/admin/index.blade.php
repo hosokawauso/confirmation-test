@@ -1,14 +1,25 @@
 @extends('layouts.app')
 
 @section('css')
-<link rel="stylesheet" href="{{ asset('css/admin/admin.css') }}">    
+<link rel="stylesheet" href="{{ asset('css/admin/admin.css') }}">
 @endsection
 
 @section('header')
+<div class="header__inner">
+    <div class="header-utilities">
+        <h1 class="header__logo">
+         FashionablyLate
+        </h1>
         <nav class="header__nav">
-            <a class="login-button" href="/login">logout</a>
+            <a class="login-button" href="/register">logout</a>
         </nav>
-@endsection
+    </div>
+</div>
+{{-- <form class="form" action="/logout" method="post">
+@csrf
+    <button class="header-nav__button">ログアウト</button>
+</form>
+@endsection --}}
 
 @section('content')
 <div class="admin-container">
@@ -75,13 +86,13 @@
                     <td class="admin-table__item">{{ $contact->email }}</td>
                     <td class="admin-table__item">{{ $contact->category->content }}</td>
                     <td class="admin-table__item detail-cell">
-                        <button type="button" wire:click="$emit('openModal', {{ $contact->id }})" class="detail-button">詳細</button>
+                        <button class="detail-button" type="button" wire:click="$emit('openModal', {{ $contact->id }})" >詳細</button>
+                        {{-- <button type="button" wire:click="testClick" class="detail-button">テスト</button> --}}
                     </td>
                 </tr>
                 @endforeach
-            </table>
-            @livewire('modal-contact-detail')
+            </table>            
         </div>
     </div>
-</div>
+     @livewire('modal-contact-detail')
 @endsection
