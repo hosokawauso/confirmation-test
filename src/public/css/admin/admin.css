@@ -23,7 +23,6 @@
 .search-form input[type="date"],
 .search-form select {
     flex: 1 1 18%;
-    /* 均等幅（%は好みで調整） */
     min-width: 150px;
     padding: 6px 10px;
     box-sizing: border-box;
@@ -92,20 +91,24 @@
     border-right: none;
     padding: 12px;
     text-align: left;
+    color: #BC8F8F;
 }
 
 .admin-table__inner th{
-    background-color: #8B4513;
+    background-color: #BC8F8F;
     color: #eee;
 }
 
 .detail-button {
     background-color: #eee;
     border: 1px solid #ccc;
-    padding: 6px 12px;
+    padding: 6px 20px;
+    margin-left: 80px;
     border-radius: 4px;
     text-decoration: none;
     cursor: pointer;
+    color: #BC8F8F;
+
 }
 
 .detail-cell {
@@ -135,7 +138,7 @@
     border: 1px solid #ccc;
     border-radius: 4px;
     text-decoration: none;
-    color: #333;
+    color: #BC8F8F;
 }
 
 .pagination .page-link:hover {

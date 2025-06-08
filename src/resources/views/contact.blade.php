@@ -37,7 +37,11 @@
                             {{ $message }}
                             @enderror
                         </div>
-                        <input type="text" name="first_name" placeholder="例：太郎" value="{{ old('last_name') }}">
+                    </div>
+                </div>
+                <div class="form__group-content">
+                    <div class="form__input--text name-fields" >
+                        <input type="text" name="first_name" placeholder="例：太郎" value="{{ old('first_name') }}">
                         <div class="form__error">
                             @error('first_name')
                             {{ $message }}
@@ -149,13 +153,12 @@
                             </option>
                             @endforeach
                         </select>
-            
+                        <div class="form__error">
+                            @error('category_id')
+                            {{ $message }}
+                            @enderror
+                        </div>
                     </div>
-                </div>
-                <div class="form__error">
-                    @error('category_id')
-                    {{ $message }}
-                    @enderror
                 </div>
             </div>
             <div class="form__group">

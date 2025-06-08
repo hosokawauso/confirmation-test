@@ -24,11 +24,11 @@
     </div>
     <form class="form" action="/login" method="post">
     @csrf
-       <div class="form__group">
-          <div class="form__group-title">
+    <div class="form__group">
+        <div class="form__group-title">
             <p class="form__label--item">メールアドレス</p>
-          </div>
-          <div class="form__group-content">
+        </div>
+        <div class="form__group-content">
             <div class="form__input--text">
                 <input type="text" name="email" value="{{ old('email') }}">
             </div>
@@ -37,8 +37,8 @@
                 {{ $message }}
                 @enderror
             </div>
-          </div>
-       </div>
+        </div>
+    </div>
     <div class="form__group">
         <div class="form__group-title">
             <p class="form__label--item">パスワード</p>
@@ -56,7 +56,7 @@
     </div>
     <div class="form__button">
         <button class="form__button-submit" type="submit">ログイン</button>
-    </div>
+    </div>   
     </form>
 </div>
 @endsection

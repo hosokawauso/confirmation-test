@@ -16,6 +16,13 @@ class ContactRequest extends FormRequest
         return true;
     }
 
+    protected function prepareForValidation()
+{
+    $this->merge([
+        'tel' => $this->tel1 . '-' . $this->tel2 . '-' . $this->tel3,
+    ]);
+}
+
     /**
      * Get the validation rules that apply to the request.
      *
@@ -30,10 +37,11 @@ class ContactRequest extends FormRequest
             'email' => ['required', 'email' ],
             'tel1' => ['required', 'digits_between:1,5'],
             'tel2' => ['required', 'digits_between:1,5'],
-            'tel3' => ['required', 'digits_between:1,5'],
+            'tel3' => ['required', 'digits_between:1,5'], 
             'address' => ['required'],
             'category_id' => ['required'],
             'detail' => ['required', 'max:120'],
+            'tel' => ['required', 'regex:/^\\d{2,5}-\\d{2,5}-\\d{4}$/'],
 
         ];
     }
@@ -48,15 +56,18 @@ class ContactRequest extends FormRequest
             'email.email' => 'メールアドレスはメール形式で入力しください',
             'tel1.required' => '電話番号を入力してください',
             'tel2.required' => '電話番号を入力してください',
-            'tel3.required' => '電話番号を入力してください',
+            'tel3.required' => '電話番号を入力してください', 
             'tel1.max' => '電話番号は5桁までの数字で入力してください',
             'tel2.max' => '電話番号は5桁までの数字で入力してください',
-            'tel3.max' => '電話番号は5桁までの数字で入力してください',
+            'tel3.max' => '電話番号は5桁までの数字で入力してください', 
             'address.required' => '住所を入力してください',
             'category_id.required' => 'お問い合わせの種類を選択してください',
             'detail.required' => 'お問い合わせ内容を入力してください',
             'detail.max' => 'お問い合わせ内容は120文字以内で入力してください',
-        ];
+            'tel.required' => '電話番号は5桁までの数字で入力してください',
+            'tel.regex' => '電話番号を入力してください',
 
+        ];
+            
     }
 }

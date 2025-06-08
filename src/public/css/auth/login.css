@@ -4,6 +4,10 @@
     max-width: 1230px;
 }
 
+.login-form__inner {
+    background-color: blue;
+}
+
 .login-form__heading {
     color: #BC8F8F;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
@@ -24,6 +28,8 @@
 
 .form__group-title {
     text-align: left;
+    color: #BC8F8F;
+    font-size: ;
 }
 
 .form__error {
