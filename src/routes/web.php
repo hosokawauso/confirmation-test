@@ -3,9 +3,11 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\AdminController;
+use App\Http\Livewire\ModalContactDetail;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
+use Livewire\Livewire;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -34,7 +36,9 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/admin/export', [AdminController::class, 'export']);
 });
 
-Route::delete('/admin', [AdminController::class, 'destroy']);
+Livewire::component('modal-contact-detail', ModalContactDetail::class);
+
+Route::delete('/admin', [ModalContactDetail::class, 'destroy']);
 
 
 

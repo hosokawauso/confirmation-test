@@ -30,7 +30,7 @@
                     <span class="form__label--required">※</span>
                 </div>
                 <div class="form__group-content">
-                    <div class="form__input--text" name-inputs>
+                    <div class="form__input--text name-fields" >
                         <input type="text" name="last_name" placeholder="例：山田" value="{{ old('last_name') }}">
                         <div class="form__error">
                             @error('last_name')
@@ -70,7 +70,7 @@
                     <span class="form__label--required">※</span>
                 </div>
                 <div  class="form__group-content">
-                    <div class="form__input--text">
+                    <div class="form__input--text common-width">
                         <input type="email" name="email" placeholder="test@example.com" value="{{ old('email') }}" >
                     </div>
                     <div class="form__error">
@@ -87,13 +87,13 @@
                     <span class="form__label--required">※</span>
                 </div>
                 <div class="form__group-content">
-                    <div class="form__input--text">
+                    <div class="form__input--text tel-fields">
                         <input type="text" name="tel1" inputmode="numeric" 
                         pattern="[0-9]*"  placeholder="087" value="{{ old('tel1') }}">
-                        <span>-</span>
+                        <span class="tel-separator">-</span>
                         <input type="text" name="tel2" inputmode="numeric" 
                         pattern="[0-9]*"  placeholder="868"  value="{{ old('tel2') }}">
-                        <span>-</span>
+                        <span class="tel-separator">-</span>
                         <input type="text" name="tel3" inputmode="numeric" 
                         pattern="[0-9]*"  placeholder="8686"  value="{{ old('tel3') }}">
                     </div>
@@ -111,7 +111,7 @@
                     <span class="form__label--required">※</span>
                 </div>
                 <div  ,class="form__group-content">
-                    <div class="form__input--text">
+                    <div class="form__input--text common-width">
                         <input type="text" name="address" placeholder="例: 東京都渋谷区千駄ヶ谷1-2-3" value="{{ old('address') }}" >
                     </div>
                     <div class="form__error">
@@ -124,10 +124,10 @@
             {{-- 建物名 --}}
             <div class="form__group">
                 <div class="form__group--title">
-                    <span class="form__label--item">建物名</span>
+                    <span class="form__label--item common-width">建物名</span>
                 </div>
                 <div class="form__group-content">
-                    <div class="form__input--text">
+                    <div class="form__input--text building-fields">
                         <input type="text" name="building" placeholder="例: 千駄ヶ谷マンション101" value="{{ old('building') }}" >
                     </div>
                 </div>
@@ -138,10 +138,10 @@
                     <span class="form__label--item">お問い合わせの種類</span>
                     <span class="form__label--required">※</span>
                 </div>
-                <div  ,class="form__group-content">
+                <div  class="form__group-content">
                     <div class="form__input--text">
                         <select class="category" name="category_id">
-                            <option value="">お問い合わせの種類</option>
+                            <option value="">選択してください</option>
                             @foreach($categories as $category)
                             <option value="{{ $category->id }}"
                                 {{ old('category_id') == $category->id ? 'selected' : ''}}>
@@ -164,7 +164,7 @@
                     <span class="form__label--required">※</span>
                 </div>
                 <div class="form__group-content">
-                    <div class="form__input--textarea">
+                    <div class="form__input--textarea common-width">
                         <textarea name="detail" placeholder="お問い合わせ内容をご記載ください">{{ old('detail') }}</textarea>
                     </div>
                     <div class="form__error">

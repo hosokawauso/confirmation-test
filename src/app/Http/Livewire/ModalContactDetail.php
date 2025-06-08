@@ -3,6 +3,8 @@ namespace App\Http\Livewire;
 
 use Livewire\Component;
 use App\Models\Contact;
+use Illuminate\Support\Facades\Log;
+
 
 class ModalContactDetail extends Component
 {
@@ -11,14 +13,27 @@ class ModalContactDetail extends Component
 
     protected $listeners = ['openModal' => 'show', 'closeModal' => 'hide'];
 
+     /* public function mount()
+{
+    $this->showModal = true;
+    $this->contact = \App\Models\Contact::first();
+}  */
+    
+    
+    
+    
     public function show($contactId)
     {
-        //dd($id);
+        //dd($contactId);
 
-        Log::info("openModal triggered with ID: {$id}");
+        //Log::info("openModal triggered with ID: {$contactId}");
+        //logger("モーダルを開きます: $contactId"); // ←ログで検証
         
         $this->contact = Contact::find($contactId);
         $this->showModal = true;
+
+        //dd($this->showModal); // 値が true になっているかチェック
+
     }
 
     public function closeModal()
@@ -46,11 +61,11 @@ class ModalContactDetail extends Component
 
     public function render()
     {
-        return view('livewire.modal-contact-detail');
+        return view('livewire.modal-contact-detail')->extends('layouts.app');
     }
 
-   /*  public function testClick()
-{
-    logger('Livewire の click イベント反応 OK');
-} */
+    public function testClick()
+    {
+        dd('ボタンが押されました！');
+    }
 }

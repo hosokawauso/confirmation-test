@@ -16,8 +16,8 @@
 
 
 @section('content')
-    <div class="contact-form__content">
-        <div class="contact-form__heading">
+    <div class="confirm-form__content">
+        <div class="confirm-form__heading">
             <h2>Confirm</h2>
         </div>
         <form class="form" action="" method="post">

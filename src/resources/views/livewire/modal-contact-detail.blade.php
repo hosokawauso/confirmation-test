@@ -1,4 +1,5 @@
-<div> 
+
+<div wire:key="modal"> 
     @if ($showModal)
     <div>
         <div>
@@ -20,4 +21,6 @@
             </div>
         </div>
     </div>
-    @endif</div>
+    @endif
+</div>
+

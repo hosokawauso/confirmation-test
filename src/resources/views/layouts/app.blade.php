@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="{{ asset('css/common.css') }} ">
 
     @yield('css')
-    {{-- @livewireStyles --}}
+    @livewireStyles
 </head>
 
 <body>
@@ -22,12 +22,5 @@
         @yield('content')
     </main>
     @livewireScripts
-    {{-- <script>
-        document.addEventListener('livewire:load', function () {
-            Livewire.on('openModal', function (id) {
-                console.log('Livewireで openModal 受信。ID:', id);
-            });
-        });
-    </script> --}}
 </body>
 </html>

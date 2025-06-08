@@ -1,17 +1,17 @@
 .header {
     background-color: white;
-    height: 100px;
     position: relative;
 }
 
 .header__inner {
     max-width: 1230px;
     margin: 0 auto;
-    padding: 0 60px;
+    padding-top: 40px;
     display: flex;
     align-items: flex-end;
     justify-content: center;
     position: relative;
+    border-bottom: 1px solid #BC8F8F;
 }
 
 .header__logo {

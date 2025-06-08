@@ -11,15 +11,10 @@
          FashionablyLate
         </h1>
         <nav class="header__nav">
-            <a class="login-button" href="/register">logout</a>
+            <a class="login-button" href="/login">logout</a>
         </nav>
     </div>
 </div>
-{{-- <form class="form" action="/logout" method="post">
-@csrf
-    <button class="header-nav__button">ログアウト</button>
-</form>
-@endsection --}}
 
 @section('content')
 <div class="admin-container">
@@ -86,13 +81,15 @@
                     <td class="admin-table__item">{{ $contact->email }}</td>
                     <td class="admin-table__item">{{ $contact->category->content }}</td>
                     <td class="admin-table__item detail-cell">
-                        <button class="detail-button" type="button" wire:click="$emit('openModal', {{ $contact->id }})" >詳細</button>
-                        {{-- <button type="button" wire:click="testClick" class="detail-button">テスト</button> --}}
+                        <button class="detail-button" type="button" wire:click="show( {{ $contact->id }})" >詳細</button>
+                        
                     </td>
                 </tr>
                 @endforeach
             </table>            
         </div>
-    </div>
-     @livewire('modal-contact-detail')
+    </form>
+    
+</div>
+    @livewire('modal-contact-detail', [], key('modal-contact-detail'))
 @endsection
